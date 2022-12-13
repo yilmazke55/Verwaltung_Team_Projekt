@@ -12,7 +12,7 @@ source "funktionen.sh"
 
 
 
-function useradd
+function useradd(){
 kdialog --inputbox username=echo$(" Wer wird Hinzugefügt")
 
     echo "Wohin soll der User gespeichert werden"
