@@ -22,3 +22,22 @@ function deletegroup(){
 	fi
 	sleep 2
 }
+# Verwaltung_Team_Projekt
+Gruppenarbeit von Kevin, Arnold, Kerem und Denys
+
+Where2add="/tmp"
+
+useradd  
+kdialog --inputbox username=echo$(" Wer wird Hinzugefügt")
+function Where2add (){
+    echo "Wohin soll der User gespeichert werden"
+    read -p "Eingabe : WHERE2ADD
+    echo "Sind sie Sicher das sie den User hinzufügen wollen"
+function yesno-dialog(){
+        YESNO=0
+        until [ $YESNO = 1 ]
+        do
+		$1
+		read -p "| (0: nein | 1: ja) " YESNO
+        done
+}
