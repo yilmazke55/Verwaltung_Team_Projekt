@@ -27,4 +27,19 @@ function menu(){
         read -p "| Eingabe: " EINGABE 
 }
 
+ 
+
+function Where2add (){
+kdialog --inputbox username=echo$(" Wer wird Hinzugefügt")
+    echo "Wohin soll der User gespeichert werden"
+    read -p "Eingabe : WHERE2ADD
+    echo "Sind sie Sicher das sie den User hinzufügen wollen"
+function yesno-dialog(){
+        YESNO=0
+        until [ $YESNO = 1 ]
+        do
+		$1
+		read -p "| (0: nein | 1: ja) " YESNO
+        done
+}
 
