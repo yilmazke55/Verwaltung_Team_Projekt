@@ -22,32 +22,26 @@ yesno-dialog who2del
         YESNO=0
         until [ $YESNO = 1 ]
         do
-		$1
-		read -p "| (0: nein | 1: ja) " YESNO
+                $1
+                read -p "| (0: nein | 1: ja) " YESNO
         done
 }
-
-
 
 
 function deletegroup(){
-        yesno-dialog where2Find 
-        for I in $(find ${WHERE2DELGROUP} -maxdepth 1 \( -name delgroup$WHERE2DELGROUP \) )
+        yesno-dialog $where2Find 
+        for I in $(find ${WHERE2FIND} -maxdepth 1 \( -name delgroup$WHAT2DEL \) )
         do 
                 echo "|> "$I
         done
-        yesno-dialog where2delgroup
-        rm ${WHERETODELGROUP}
+        yesno-dialog what2Del 
+        rm ${WHAT2DEL}
         if [ $? = 0 ]
         then
-                echo "| ${WHERE2DELGROUP} wurde gelöscht!"
+                echo "| ${WHAT2DEL} wurde gelöscht!"
         fi
         sleep 2
 }
-
-
-
-
-
+ 
 exit 0
 
