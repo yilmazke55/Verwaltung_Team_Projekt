@@ -7,9 +7,9 @@
 # Variablen init
 COMPRESS="z"
 WHERE2ADDUSER="/tmp"
-WHERE2DELTEUSER="/home"
+WHERE2DELUSER="/home"
 WHERE2FADDGROUP="/tmp"
-WHERE2DELTEGROUP="/tmp"
+WHERE2DELGROUP="/tmp"
 
  
 # Hauptmenu ausgeben
