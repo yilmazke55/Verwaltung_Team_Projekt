@@ -32,44 +32,22 @@ yesno-dialog who2del
 
 function deletegroup(){
         yesno-dialog where2Find 
-        for I in $(find ${WHERE2FIND} -maxdepth 1 \( -name delgroup$WHAT2DEL \) )
+        for I in $(find ${WHERE2DELGROUP} -maxdepth 1 \( -name delgroup$WHERE2DELGROUP \) )
         do 
                 echo "|> "$I
         done
-        yesno-dialog what2Del 
-        rm ${WHAT2DEL}
+        yesno-dialog where2delgroup
+        rm ${WHERETODELGROUP}
         if [ $? = 0 ]
         then
-                echo "| ${WHAT2DEL} wurde gelöscht!"
+                echo "| ${WHERE2DELGROUP} wurde gelöscht!"
         fi
         sleep 2
 }
 
 
 
-# Hauptereignisschleife
-while :
-do
-        menu
-        case $EINGABE in
-                c|C)
-                        useradd
-                        ;;
-                e|D)
-                        userdel
-                        ;;
-                e|E)
-                        groupadd
-                        ;;
-                l|L)
-                        groupdel
-                        ;;
-                *)
-                        echo "Und Tschüss"
-                        exit 1
-        esac
-        sleep 2
-done
+
 
 exit 0
 
