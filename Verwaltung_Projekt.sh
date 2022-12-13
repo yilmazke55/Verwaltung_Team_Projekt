@@ -28,18 +28,48 @@ yesno-dialog who2del
 }
 
 
-function deletegroup(){
 
-	yesno-dialog where2Find 
-	for I in $(find ${WHERE2FIND} -maxdepth 1 \( -name "*tgz" -o -name "*xz" -o -name "*bzip2" \) )
-	do 
-		echo "|> "$I
-	done
-   	yesno-dialog what2Del 
-	rm ${WHAT2DEL}
-	if [ $? = 0 ]
-	then
-		echo "| ${WHAT2DEL} wurde gelöscht!"
-	fi
-	sleep 2
+
+function deletegroup(){
+        yesno-dialog where2Find 
+        for I in $(find ${WHERE2FIND} -maxdepth 1 \( -name delgroup$WHAT2DEL \) )
+        do 
+                echo "|> "$I
+        done
+        yesno-dialog what2Del 
+        rm ${WHAT2DEL}
+        if [ $? = 0 ]
+        then
+                echo "| ${WHAT2DEL} wurde gelöscht!"
+        fi
+        sleep 2
 }
+
+
+
+# Hauptereignisschleife
+while :
+do
+        menu
+        case $EINGABE in
+                c|C)
+                        useradd
+                        ;;
+                e|D)
+                        userdel
+                        ;;
+                e|E)
+                        groupadd
+                        ;;
+                l|L)
+                        groupdel
+                        ;;
+                *)
+                        echo "Und Tschüss"
+                        exit 1
+        esac
+        sleep 2
+done
+
+exit 0
+
